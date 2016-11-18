@@ -2,7 +2,7 @@
 var mongoose = require("mongoose");
 
 //Make connection to database
-mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/ukr-blog", function (error) {
+mongoose.connect(process.env.MONGOLAB_URI, function (error) {
     if (error) console.error(error);
     else console.log('mongo connected');
 });
