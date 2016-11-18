@@ -8,8 +8,8 @@ var express = require('express');
 			passport = require('passport'),
 			path = require("path"),
 			session = require('express-session'),
-			// MongoStore = require('connect-mongo')(session),
-			// mongoose = require("mongoose"),
+			MongoStore = require('connect-mongo')(session),
+			mongoose = require("mongoose"),
 			postRoutes = require('./routes/posts.js');
 		
 
