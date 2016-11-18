@@ -6,8 +6,8 @@ var express = require('express');
 			cookieParser = require('cookie-parser'),
 			bodyParser = require('body-parser'),
 			passport = require('passport'),
-			path = require("path"),
 			session = require('express-session'),
+			path = require("path"),
 			postRoutes = require('./routes/posts.js');
 		
 
@@ -18,12 +18,12 @@ app.use(express.static(__dirname + '/public'));
 require('./config/passport')(passport); //passport configuration
 
 //Cookie and Session
-
 app.use(session({
 	secret: 'awesome',
 	resave: true,
     saveUninitialized: true
 }));
+
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());

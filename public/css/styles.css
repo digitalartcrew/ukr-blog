@@ -1,12 +1,13 @@
 
-/*#blogform {
-    background-color: #000;
+#blogform {
+ /*   background-color: #000;*/
     z-index: 10000;
-}*/
+}
+
 #ukr {
 	color: #fff;
 }
-form {
+/*form {
     display: block;
     width: 300px;
     margin: 10px;
@@ -17,7 +18,7 @@ form {
     color: #555;
     vertical-align: middle;
     margin-right: 800px;
-}
+}*/
 
 
 /*.btn-block {
