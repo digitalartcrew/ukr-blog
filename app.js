@@ -8,24 +8,22 @@ var express = require('express');
 			passport = require('passport'),
 			path = require("path"),
 			session = require('express-session'),
-			MongoStore = require('connect-mongo')(session),
-			mongoose = require("mongoose"),
 			postRoutes = require('./routes/posts.js');
 		
 
-require('./config/passport')(passport); //passport configuration
 
 app.use(express.static(__dirname + '/public'));
+
+//Passport
+require('./config/passport')(passport); //passport configuration
+
+//Cookie and Session
+
 app.use(session({
-    secret: "some secret key",
-    saveUninitialized: true, // (default: true)
-    resave: true, // (default: true)
-    store: new MongoStore({
-      mongooseConnection: mongoose.connection,
-    }),
-
-  }));
-
+	secret: 'awesome',
+	resave: true,
+    saveUninitialized: true
+}));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -40,9 +38,8 @@ app.use(bodyParser.urlencoded({
 app.use(morgan("tiny"));
 // use method-override
 app.use(methodOverride('_method'));
+
 app.use('/api/posts', postRoutes);
-
-
 
 require('./routes/auth.js')(app,passport); //load our routes and full configured passport
 
