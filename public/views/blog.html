@@ -1,0 +1,104 @@
+<nav class="navbar navbar-default" ng-controller="logController">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#" ng-click="home()">Urban Knights Radio Blog</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="toggle()"></span> Submit blog</a></li>
+			</ul>
+
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="false">Sort By<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><!-- <a href="#" ng-click="order('date')">Date</a> --></li>
+						<li><!-- <a href="#" ng-click="order('title')">Title</a> --></li>
+						<li><!-- <a href="#" ng-click="order('-voteCount')">Votes --></a></li>
+
+					</ul>
+				</li>
+				<li><a href="#" ng-click="account()">Account</a></li>
+				<li><a href="#" ng-click="logout()"">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+	
+</nav>
+<div class="container-fluid">
+	<div class="container" id="blogform">
+		<form role="form" for="form" ng-show="postForm" ng-submit="addPost(post)">
+			<div class="form-group">
+				<label for="title">Title</label>
+				<input type="text" ng-model="post.title" id="title" name="title" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="author">Author</label>
+				<input type="text" ng-model="post.author" id="author" name="author" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="imageUrl">Image Url</label>
+				<input type="text" ng-model="post.imageUrl" id="imageUrl" name="imageUrl" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="description">Description</label>
+				<textarea type="text" ng-model="post.description" id="description" name="description" class="form-control">
+				</textarea> 
+				<input type="submit" value="Submit post" ng-click="onOff=onOff">
+			</form>
+		</div>
+
+		
+
+			<div class="container">
+			<div class="row">
+			<input type="text" class="form-control" placeholder="Search" ng-model="post.query">
+				<div class="col-md-12"  ng-repeat="post in posts | filter: post.query | orderBy: predicate : reverse">
+					<div class="col-md-10 postit">
+						<div class="col-md-3">
+							<img id="postImg" src="{{post.imageUrl}}">
+						</div>
+						<div class="col-md-9">
+							<h2>{{post.title}}</h2> |<span class="glyphicon glyphicon-arrow-up" ng-click="voteUp(post)"></span><span class="glyphicon glyphicon-arrow-down" ng-click="voteDown(post)"></span>
+
+							<span ng-class="post.meta.voteCount > 0 ? 'pos' :(post.meta.voteCount < 0 ?'neg' : 'neu' )">{{post.meta.voteCount}}</span>
+
+							<span><h5> Written by {{post.author}}</h5></span>
+							<p>{{post.description}}</p>
+							<span>{{post.display}}</span> |
+							<span class="glyphicon glyphicon-comment" ng-click="toggle3()">{{comments.length}}Comments</span> | 
+							<span class="glyphicon glyphicon-pencil" ng-click="toggle2()">Add Comment</span>
+							<br><br>
+
+							<form for="form" ng-show="postComment" ng-submit="addComment(post, comment)">
+
+								<div class="form-group">
+									<label for="author">Author</label>
+									<input type="text" ng-model="comment.author" id="author" name="author">
+
+
+									<label for="text">Text</label>
+									<input type="text" ng-model="comment.text" id="text" name="text">
+									<input type="submit" value="Add Comment">
+								</div>
+							</form>
+
+							<span ng-show="showComment" ng-repeat="comment in post.comments">
+								<p>{{comment.text}} -{{comment.author}}</p>
+
+							</span>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>

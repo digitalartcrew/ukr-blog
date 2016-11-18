@@ -1,0 +1,43 @@
+{
+  "name": "ukr-blog",
+  "version": "1.0.0",
+  "description": "Urban Knight Radio Blog",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalartcrew/ukr-blog.git"
+  },
+  "keywords": [
+    "\"Urban",
+    "Knights",
+    "Radio\""
+  ],
+  "author": "Donte Burney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitalartcrew/ukr-blog/issues"
+  },
+  "homepage": "https://github.com/digitalartcrew/ukr-blog#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "connect": "^3.5.0",
+    "connect-mongo": "^1.3.2",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "express-session-mongo": "^0.1.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.6",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}

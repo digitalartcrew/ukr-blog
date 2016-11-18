@@ -1,0 +1,97 @@
+
+/*#blogform {
+    background-color: #000;
+    z-index: 10000;
+}*/
+#ukr {
+	color: #fff;
+}
+form {
+    display: block;
+    width: 300px;
+    margin: 10px;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    vertical-align: middle;
+    margin-right: 800px;
+}
+
+
+/*.btn-block {
+    display: block;
+    width: 300px;
+    padding-right: 0;
+    padding-left: 0;
+
+}*/
+.ng-enter{
+    transition: 1.0s ease all;
+    opacity: 0;
+}
+.ng-enter.ng-enter-active{
+    opacity: 1;
+}
+
+.ng-leave{
+    transition: 0.5s ease all;
+    opacity: 1;
+}
+
+.ng-leave.ng-leave-active{
+    opacity: 0;
+}
+
+
+.navbar-brand {
+	background-color: black;
+	color: #fff;
+}
+
+.pos{
+	color: grey;
+}
+
+.neg{
+	color: red;
+}
+
+.neu {
+	color: black;
+}
+
+body {
+	background-image: url(../img/header.png);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
+}
+	
+}
+h5 {
+	float: right;
+}
+.postit {
+	box-shadow: 10px 10px 5px #888888;
+	border-radius: 25px;
+	margin: 10px;
+	background-color: #000;
+	color: #fff;
+}
+
+#postImg{
+	border-radius: 25px;
+	margin-top: 15px;
+}
+
+
+span.glyphicon-arrow-up {
+	font-size: 20px;
+}
+
+span.glyphicon-arrow-down {
+	font-size: 20px;
+}
