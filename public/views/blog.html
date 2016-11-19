@@ -69,9 +69,8 @@
 							<img id="postImg" src="{{post.imageUrl}}">
 						</div>
 						<div class="col-md-9">
-							<h2>{{post.title}}</h2> |<span class="glyphicon glyphicon-arrow-up" ng-click="voteUp(post)"></span><span class="glyphicon glyphicon-arrow-down" ng-click="voteDown(post)"></span>
-
-							<span ng-class="post.meta.voteCount > 0 ? 'pos' :(post.meta.voteCount < 0 ?'neg' : 'neu' )">{{post.meta.voteCount}}</span>
+							<h2>{{post.title}}</h2> 
+							{{post.voteCount}}|<span class="glyphicon glyphicon-arrow-up" ng-click="voteUp(post)"></span><span class="glyphicon glyphicon-arrow-down" ng-click="voteDown(post)"></span>
 
 							<span><h5> Written by {{post.author}}</h5></span>
 							<p>{{post.description}}</p>

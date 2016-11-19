@@ -20,20 +20,15 @@ app.use(express.static(__dirname + '/public'));
 require('./config/passport')(passport); //passport configuration
 
 
-
 //Cookie and Session
-// app.use(session({
-// 	secret: 'awesome',
-// 	resave: true,
-//     saveUninitialized: true
-// }));
-
 app.use(session({
 	secret: 'awesome',
-   db: new MongoStore({ mongooseConnection: mongoose.connection })
+   	db: new MongoStore({ mongooseConnection: mongoose.connection }),
+   	url: 'mongodb://localhost/ukr-blog',
+      ttl: 14 * 24 * 60 * 60 // = 14 days. Default
 }));
 
-//Function to clean up sessions
+
 
 
 app.use(cookieParser());

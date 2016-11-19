@@ -1,14 +1,28 @@
 app.controller('blogController',['$scope','BlogService','$http','$state', function($scope, BlogService, $http, $state){
 
 	$scope.posts = BlogService.query();
+	console.log($scope.posts);
 
-	$scope.voteUp = function (post) {
-		// console.log(post);
-	};
+	$scope = {
+		voteUp: function(post){
+			post.voteCount++;
+		},
+		voteDown: function(post){
+			post.voteCount--;
+		},
+		posts: function(){
+			BlogService.query();
+		}
 
-	$scope.voteDown = function (post){
-		post.meta.voteCount--;
-	};
+	}
+
+	// $scope.voteUp = function (post) {
+	// 	post.voteCount++;
+	// };
+
+	// $scope.voteDown = function (post){
+	// 	post.voteCount--;
+	// };
 
 	$scope.postForm = false;
 	$scope.toggle = function() {
