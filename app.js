@@ -7,6 +7,8 @@ var express = require('express');
 			bodyParser = require('body-parser'),
 			passport = require('passport'),
 			session = require('express-session'),
+			mongoose = require('mongoose'),
+			MongoStore = require('connect-mongo')(session),
 			path = require("path"),
 			postRoutes = require('./routes/posts.js');
 		
@@ -17,12 +19,22 @@ app.use(express.static(__dirname + '/public'));
 //Passport
 require('./config/passport')(passport); //passport configuration
 
+
+
 //Cookie and Session
+// app.use(session({
+// 	secret: 'awesome',
+// 	resave: true,
+//     saveUninitialized: true
+// }));
+
 app.use(session({
 	secret: 'awesome',
-	resave: true,
-    saveUninitialized: true
+   db: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
+
+//Function to clean up sessions
+
 
 app.use(cookieParser());
 app.use(passport.initialize());
